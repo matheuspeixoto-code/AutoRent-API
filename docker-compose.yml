@@ -1,0 +1,10 @@
+version: '2.4'
+
+services:
+  app:
+    build: .
+    container_name: autorent
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/app
