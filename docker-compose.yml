@@ -1,6 +1,20 @@
-version: '2.4'
+
 
 services:
+  database_ignite:
+    image: postgres
+    container_name: database_ignite
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=ignite
+      - POSTGRES_DB=autorent
+    volumes:
+      - pgdata:/var/lib/postgresql
+    networks:
+      - default
   app:
     build: .
     container_name: autorent
@@ -8,3 +22,10 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+    networks:
+      - default
+
+
+volumes:
+  pgdata:
+    driver: local

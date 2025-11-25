@@ -1,5 +1,5 @@
 import { response } from "express";
-import { Category } from "../../model/category";
+import { Category } from "../../entities/Category";
 import { ICategoriesRepository } from "../../repository/implementations/ICategoriesRepository";
 
 
