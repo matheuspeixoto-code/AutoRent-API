@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import express, { request, response } from "express";
 import { router } from "./routes";
 import swaggerUI from "swagger-ui-express";
@@ -5,7 +6,7 @@ import swaggerFile from "./swagger.json"
 
 import { AppDataSource } from "./data-source";
 
-//import "./database";
+import "./shared/container";
 
 const app =express();
 app.use(express.json());
