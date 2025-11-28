@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli -d ./src/data-source.ts"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli -d ./src/data-source.ts",
+    "typeorm:create": "ts-node-dev ./node_modules/typeorm/cli"
   },
   "keywords": [],
   "author": "",
