@@ -1,14 +1,22 @@
 import fs from "fs";
 import {parse} from "csv-parse";
 import { ICategoriesRepository } from "../../repository/implementations/ICategoriesRepository";
+import { inject, injectable } from "tsyringe";
 
 interface IImportCategory{
     name:string;
     description:string;
 }
 
+@injectable()
 class ImportCategoryUseCase{
-    constructor (private categoriesRepoitory:ICategoriesRepository){}
+    constructor (
+
+        @inject("CategoriesRepository")
+        private categoriesRepoitory:ICategoriesRepository
+    ){}
+
+
     loadCategories(file:Express.Multer.File): Promise<IImportCategory[]>{
         return new Promise((resolve,rejects)=>{
             const stream= fs.createReadStream(file.path);
@@ -40,12 +48,12 @@ class ImportCategoryUseCase{
     async execute(file:Express.Multer.File):Promise<void>{
         const categories=await this.loadCategories(file);
 
-        categories.map(async category =>{
+        categories.map(async (category) =>{
             const {name,description}=category;
-            const existCategory=this.categoriesRepoitory.findByName(name);
+            const existCategory=await this.categoriesRepoitory.findByName(name);
 
             if(!existCategory){
-                this.categoriesRepoitory.create({
+                await this.categoriesRepoitory.create({
                     name,
                     description,
 
