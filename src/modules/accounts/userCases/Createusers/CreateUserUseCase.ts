@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
-import { IUsersRepository } from "../repository/IUsersRepository";
-import { ICreateUserDTO } from "../dtos/ICreaetUserDTO";
+import { IUsersRepository } from "../../repository/IUsersRepository";
+import { ICreateUserDTO } from "../../dtos/ICreaetUserDTO";
 
 @injectable()
 class CreateUserUseCase{
