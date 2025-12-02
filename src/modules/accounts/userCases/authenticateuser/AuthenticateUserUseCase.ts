@@ -43,10 +43,15 @@ class AuthenticateUserUseCase{
             
         })
 
-        return {
-            user,
-            token
+        const tokenReturn:IResponse={
+            token,
+            user:{
+                name:user.name,
+                email:user.email
+            }
         }
+
+        return tokenReturn
 
         //Gerar o JsonWebToken
     }
