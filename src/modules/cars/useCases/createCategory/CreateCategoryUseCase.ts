@@ -1,5 +1,6 @@
 import {inject,injectable} from "tsyringe"
 import { ICategoriesRepository,ICreateCategoryDTO } from "../../repository/implementations/ICategoriesRepository";
+import { AppError } from "../../../../errors/AppError";
 
 interface IRequest{
     name:string;
@@ -16,7 +17,7 @@ class CreateCategoryUseCase{
         
         const categoryAlreadExists= await this.categoriesRepository.findByName(name);
         if(categoryAlreadExists){
-            throw new Error("Categoria já existente");
+            throw new AppError("Categoria já existente");
         }
         
         this.categoriesRepository.create({description,name});
