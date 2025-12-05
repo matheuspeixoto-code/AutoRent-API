@@ -25,6 +25,10 @@ export async function ensureAutheticated(request:Request,response:Response,next:
             throw new AppError("User does not exists", 401)
         }
 
+        request.user={
+            id:user_id
+        }
+
         next()
 
     }catch{
