@@ -3,7 +3,15 @@
   "compilerOptions": {
     // File Layout
     //"rootDir": "src",
+    "ignoreDeprecations": "6.0",
+    "baseUrl": "./src",
     "outDir": "./dist",
+    "paths": {
+      "@modules/*":["modules/*"],
+      "@config/*":["config/*"],
+      "@shared/*":["shared/*"],
+      "@errors/*":["errors/*"]
+    },
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
