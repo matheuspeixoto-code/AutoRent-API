@@ -1,6 +1,6 @@
 import {inject,injectable} from "tsyringe"
-import { ICategoriesRepository,ICreateCategoryDTO } from "../../repository/implementations/ICategoriesRepository";
-import { AppError } from "../../../../errors/AppError";
+import { ICategoriesRepository,ICreateCategoryDTO } from "@modules/cars/repository/implementations/ICategoriesRepository";
+import { AppError } from "@errors/AppError";
 
 interface IRequest{
     name:string;

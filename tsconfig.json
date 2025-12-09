@@ -3,14 +3,15 @@
   "compilerOptions": {
     // File Layout
     //"rootDir": "src",
-    "ignoreDeprecations": "6.0",
-    "baseUrl": "./src",
+
+    "baseUrl": "src",
     "outDir": "./dist",
     "paths": {
       "@modules/*":["modules/*"],
       "@config/*":["config/*"],
       "@shared/*":["shared/*"],
-      "@errors/*":["errors/*"]
+      "@errors/*":["errors/*"],
+      "@utils/*":["utils/*"]
     },
 
     // Environment Settings

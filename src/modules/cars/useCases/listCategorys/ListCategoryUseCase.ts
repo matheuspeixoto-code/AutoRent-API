@@ -1,6 +1,6 @@
 import { response } from "express";
-import { Category } from "../../entities/Category";
-import { ICategoriesRepository } from "../../repository/implementations/ICategoriesRepository";
+import { Category } from "@modules/cars/entities/Category";
+import { ICategoriesRepository } from "@modules/cars/repository/implementations/ICategoriesRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
