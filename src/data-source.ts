@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
   database: "autorent",
 
   entities: ["src/modules/**/entities/*.ts"],
-  migrations: ["src/database/migrations/*.ts"],
+  migrations: ["src/shared/infra/database/migrations/*.ts"],
 
   synchronize: false,
   logging: false,
