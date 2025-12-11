@@ -1,3 +1,47 @@
+# 🚗 AutoRent — API de Aluguel de Carros
+
+API desenvolvida em **Node.js + TypeScript** para gerenciamento de carros, categorias, especificações e processo de aluguel.  
+Projeto criado para fins de estudo, utilizando arquitetura limpa, boas práticas e recursos modernos como **Docker**, **TypeORM**, **Multer**, **JWT**, **TSyringe** e **Jest**.
+
+---
+
+## 📦 Tecnologias utilizadas
+
+- Node.js  
+- TypeScript  
+- Express  
+- TypeORM  
+- PostgreSQL  
+- Docker & Docker Compose  
+- Multer  
+- JWT  
+- TSyringe  
+- Swagger UI  
+- Jest  
+
+---
+
+# 🐳 Rodando com Docker
+
+## 1. Subir containers
+ - docker compose up -d
+
+## 2. Para a aplicação
+ - docker compose stop
+
+## 2. Rodar a aplicação
+- docker compose start
+
+---
+
+# Rodar os teste
+ - npm test
+
+---
+
+
+# Requisitos do sistema
+
 # Cadastro de carro
 
 **RF**
