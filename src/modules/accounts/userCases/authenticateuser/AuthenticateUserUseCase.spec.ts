@@ -1,5 +1,5 @@
 
-import { AppError } from "@errors/AppError"
+import { AppError } from "@shared/errors/AppError"
 import { ICreateUserDTO } from "@modules/accounts/dtos/ICreaetUserDTO"
 import { UserRepositoryInMemory } from "@modules/accounts/repository/In-memory/UserRepositoryInMemory"
 import { CreateUserUseCase } from "../Createusers/CreateUserUseCase"

@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import express, { NextFunction, Request, request, Response, response } from "express";
-import { router } from "./routes";
+import { router } from "@shared/infra/http/routes"; 
 import swaggerUI from "swagger-ui-express";
-import swaggerFile from "./swagger.json"
+import swaggerFile from "../../../swagger.json"
 
-import { AppDataSource } from "./data-source";
+import { AppDataSource } from "@data";
 
 import "@shared/container";
-import { AppError } from "@errors/AppError";
+import { AppError } from "@shared/errors/AppError";
 
 const app =express();
 app.use(express.json());
