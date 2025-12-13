@@ -13,7 +13,8 @@ class CarsRepository implements ICarsRepository{
         this.repository=AppDataSource.getRepository(Car)
     }
     
-    async create({name,description,daily_rate,license_plate,fine_amount,brand,category_id}: ICreateCarDTO): Promise<Car> {
+    
+    async create({name,description,daily_rate,license_plate,fine_amount,brand,category_id,specifications}: ICreateCarDTO): Promise<Car> {
         
         const car = this.repository.create({
             name,
@@ -22,7 +23,8 @@ class CarsRepository implements ICarsRepository{
             license_plate,
             fine_amount,
             brand,
-            category_id
+            category_id,
+            specifications
         })
 
         await this.repository.save(car)
@@ -54,6 +56,12 @@ class CarsRepository implements ICarsRepository{
         const cars = await carsQuerry.getMany()
 
         return cars
+    }
+
+    async findById(id: string): Promise<Car> {
+        const car = await this.repository.findOne({where:{id}})
+
+        return car
     }
 
 }
