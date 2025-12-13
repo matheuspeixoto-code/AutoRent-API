@@ -1,5 +1,6 @@
 import { ICarsRepository } from "@modules/cars/repository/implementations/ICarsRepository";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
+import { inject, injectable } from "tsyringe";
 
 interface IRequest{
     category_id?:string;
@@ -7,9 +8,11 @@ interface IRequest{
     name?:string;
 }
 
+@injectable()
 class ListAvailableCarsUseCase{
     constructor (
-       private carsRepository:ICarsRepository
+        @inject("CarsRepository")
+        private carsRepository:ICarsRepository
 
     ){}
     async execute({category_id,brand,name}:IRequest):Promise<Car[]> {
