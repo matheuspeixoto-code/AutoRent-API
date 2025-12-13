@@ -1,13 +1,13 @@
 import { CarsRepositoryInMemory } from "@modules/cars/repository/in-memory/CarsRepositoryInMemory"
-import { ListCarsUseCase } from "./ListCarsUseCase"
+import { ListAvailableCarsUseCase } from "./ListAvailableCarsUseCase"
 
-let listCarsUseCase:ListCarsUseCase
+let listAvailableCarsUseCase:ListAvailableCarsUseCase
 let carsRepositoryInMemory: CarsRepositoryInMemory
 
 describe("List cars",()=>{
     beforeEach(()=>{
         carsRepositoryInMemory = new CarsRepositoryInMemory()
-        listCarsUseCase = new ListCarsUseCase(carsRepositoryInMemory)
+        listAvailableCarsUseCase = new ListAvailableCarsUseCase(carsRepositoryInMemory)
     })
     
     it("should be able list all available cars",async ()=>{
@@ -20,7 +20,7 @@ describe("List cars",()=>{
             "brand":"Audi",
             "category_id":"680cc78f-0088-4917-976a-9e9a2a43aedb"
         })
-        const cars=await listCarsUseCase.execute({})
+        const cars=await listAvailableCarsUseCase.execute({})
 
         expect(cars).toEqual([car])
     })
@@ -35,7 +35,7 @@ describe("List cars",()=>{
             "brand":"car_brand_teste",
             "category_id":"680cc78f-0088-4917-976a-9e9a2a43aedb"
         })
-        const cars=await listCarsUseCase.execute({
+        const cars=await listAvailableCarsUseCase.execute({
             brand:"car_brand_teste",
         })
 
@@ -51,7 +51,7 @@ describe("List cars",()=>{
             "brand":"car_brand_teste",
             "category_id":"680cc78f-0088-4917-976a-9e9a2a43aedb"
         })
-        const cars=await listCarsUseCase.execute({
+        const cars=await listAvailableCarsUseCase.execute({
             name:"BMW A1",
         })
 
@@ -67,7 +67,7 @@ describe("List cars",()=>{
             "brand":"car_brand_teste",
             "category_id":"680cc78f-0088-4917-976a-9e9a2a43aedb"
         })
-        const cars=await listCarsUseCase.execute({
+        const cars=await listAvailableCarsUseCase.execute({
             category_id:"680cc78f-0088-4917-976a-9e9a2a43aedb",
         })
 
