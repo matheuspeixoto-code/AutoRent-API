@@ -80,7 +80,6 @@ class AuthenticateUserUseCase{
 
         return tokenReturn
 
-        //Gerar o JsonWebToken
     }
 }
 
