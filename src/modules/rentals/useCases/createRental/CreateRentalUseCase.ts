@@ -27,17 +27,17 @@ class CreateRentalUseCase{
     async execute({user_id,car_id,expected_return_date}:IRequest):Promise<Rental>{
         const minimuHour= 24
 
+        const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(user_id)
+        
+        if(rentalOpenToUser){
+            throw new AppError("There's a rental in progress for user!")
+        }
+        
         const carUnAvailable = await this.rentalsRepository.findOpenRentalByCar(car_id)
-
         if(carUnAvailable){
             throw new AppError("Car is unavailable")
         }
 
-        const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(user_id)
-
-        if(rentalOpenToUser){
-            throw new AppError("There's a rental in progress for user!")
-        }
 
         const dateNow=this.dateProvider.dateNow()
         const compare = this.dateProvider.compareInHours(dateNow,expected_return_date)
