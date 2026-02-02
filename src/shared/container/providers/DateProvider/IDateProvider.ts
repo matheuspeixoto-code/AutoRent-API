@@ -7,6 +7,7 @@ interface IDateProvider{
     dateNow():Date;
     addDate(days:number):Date;
     compareInDate(start_date:Date, end_date:Date): number
+    addHours(hours:number):Date
 
 }
 
