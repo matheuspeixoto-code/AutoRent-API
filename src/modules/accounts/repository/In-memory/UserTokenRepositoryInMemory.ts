@@ -5,6 +5,16 @@ import { v4 as uuidV4 } from "uuid";
 
 class UserTokenRepositoryInMemory implements IUsersTokenRepository {
   usersTokens: UserToken[] = [];
+  
+  async findByRefreshToken(
+    refresh_token: string
+  ): Promise<UserToken > {
+    return (
+      this.usersTokens.find(
+        (token) => token.refresh_token === refresh_token
+      ) 
+    );
+  }
 
   async create({
     expires_date,
